@@ -1,0 +1,60 @@
+\documentclass[lang=cn,10pt]{OIBooks}
+
+\title{从零开始的信息学竞赛}
+\subtitle{一名野生教练的教学笔记}
+\author{吴尧}
+%\institute{Elegant\LaTeX{} Program}
+\date{\today}
+\version{0.1}
+\bioinfo{B站}{爱学习的咸鱼君}
+
+\extrainfo{古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。—— 苏轼}
+
+\setcounter{tocdepth}{3}
+
+\logo{neo.jpg}
+\cover{7.jpg}
+
+% 本文档命令
+
+\usepackage{longtable}
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+%修改标题页的橙色带
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+
+\begin{document}
+
+\maketitle%封面
+\input{00chapter/xuzhang.tex}
+\input{00chapter/zhixie.tex}
+
+
+\tableofcontents%目录
+
+\mainmatter
+\part{语言基础篇}{语言基础篇}
+\input{01chapter/chapter.tex}
+
+
+\printbibliography[heading=bibintoc, title=\ebibname]
+\appendix
+
+\chapter{基本数学工具}
+
+
+本附录包括了计量经济学中用到的一些基本数学，我们扼要论述了求和算子的各种性质，研究了线性和某些非线性方程的性质，并复习了比例和百分数。我们还介绍了一些在应用计量经济学中常见的特殊函数，包括二次函数和自然对数，前 4 节只要求基本的代数技巧，第 5 节则对微分学进行了简要回顾；虽然要理解本书的大部分内容，微积分并非必需，但在一些章末附录和第 3 篇某些高深专题中，我们还是用到了微积分。
+
+\section{求和算子与描述统计量}
+
+\textbf{求和算子} 是用以表达多个数求和运算的一个缩略符号，它在统计学和计量经济学分析中扮演着重要作用。如果 $\{x_i: i=1, 2, \ldots, n\}$ 表示 $n$ 个数的一个序列，那么我们就把这 $n$ 个数的和写为：
+
+\begin{equation}
+\sum_{i=1}^n x_i \equiv x_1 + x_2 +\cdots + x_n
+\end{equation}
+
+
+
+\end{document}
