@@ -953,10 +953,18 @@
 \RequirePackage{array}
 
 \RequirePackage{minted}%代码
-\setminted{
+\setminted[C++]{% 代码格式
 	frame=lines,
 	tabsize=4,
 	linenos=true,
-	showspaces=false
+	showspaces=false,
+	escapeinside=@@,
+	style=xcode
+}
+
+\setminted[text]{% 输入输出样例格式
+	tabsize=4,
+	showspaces=false,
+	style=algol
 }
 
