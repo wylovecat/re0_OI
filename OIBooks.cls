@@ -404,7 +404,7 @@
   \newcommand{\examplename}{例题} %
   \newcommand{\instancename}{示例} %
   \newcommand{\problemname}{问题} % 问题
-  \newcommand{\exercisename}{练习} % 练习=习题
+  \newcommand{\exercisename}{练习题单} % 练习=习题
   \newcommand{\remarkname}{注}
   \newcommand{\assumptionname}{假设}
   \newcommand{\conclusionname}{结论}
@@ -416,7 +416,17 @@
   \newcommand{\historyname}{版本更新历史}
   \newcommand{\beforechap}{第}
   \newcommand{\afterchap}{章}
-}{\relax}
+  \newcommand{\tmmsname}{题目描述}
+  \newcommand{\srgsname}{输入格式}
+  \newcommand{\scgsname}{输出格式}
+  \newcommand{\srylname}[1]{输入样例 #1}
+  \newcommand{\scylname}[1]{输出样例 #1}
+  \newcommand{\wttsname}{问题提示}
+  \newcommand{\tmfxname}{题目分析}
+  \newcommand{\dmsxname}{代码实现}
+  \newcommand{\mbdmname}{模板代码}
+  \newcommand{\khxjname}[1]{第#1}
+}{\relax} 
 
 
 
@@ -506,6 +516,22 @@
       overlay unbroken and last={
         \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
           \textcolor{main}{$\clubsuit$}};}},
+	probstyle/.style={
+	   	common,
+	   	colframe=third4,  
+	   	colback=third4!5,
+	   	colbacktitle=third, 
+	   	overlay unbroken and last={
+	   		\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+	   			\textcolor{third}{$\clubsuit$}};}},
+	solstyle/.style={
+		   	common,
+		   	colframe=third4,  
+		   	colback=third4!5,
+		   	colbacktitle=second, 
+		   	overlay unbroken and last={
+		   		\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+		   			\textcolor{second}{$\clubsuit$}};}},
     thmstyle/.style={
       common,
       colframe=second,  
@@ -566,6 +592,117 @@
           {title=\axiomname~\thetcbcounter}
       },
     IfBooleanTF={#3}{label=#4}{label={axi:#4}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 题目描述
+\DeclareTColorBox{tmms}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\tmmsname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\tmmsname~\thetcbcounter\ (#2)}}
+		{title=\tmmsname~\thetcbcounter}
+}}
+
+% 输入格式
+ \DeclareTColorBox{srgs}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\srgsname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\srgsname~\thetcbcounter\ (#2)}}
+		{title=\srgsname~\thetcbcounter}
+	}}
+
+% 输出格式
+\DeclareTColorBox{scgs}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\scgsname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\scgsname~\thetcbcounter\ (#2)}}
+		{title=\scgsname~\thetcbcounter}
+}}
+
+% 输入样例
+\DeclareTColorBox{sryl}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\srylname~\thetcbcounter\ #1}}
+	{
+		IfValueTF={#2} 
+		{title={\srylname~\thetcbcounter\ #2}}
+		{title=\srylname~\thetcbcounter}
+}}
+
+% 输出样例
+\DeclareTColorBox{scyl}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\scylname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\scylname~\thetcbcounter\ #2}}
+		{title=\scylname~\thetcbcounter}
+}}
+
+% 问题提示
+\DeclareTColorBox{wtts}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\wttsname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\wttsname~\thetcbcounter\ (#2)}}
+		{title=\wttsname~\thetcbcounter}
+}}
+
+% 题目分析
+\DeclareTColorBox{tmfx}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\tmfxname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\tmfxname~\thetcbcounter\ (#2)}}
+		{title=\tmfxname~\thetcbcounter}
+}}
+
+% 代码实现
+\DeclareTColorBox{dmsx}{ g o t\label g }{
+	common,solstyle,
+	IfValueTF={#1}
+	{title={\dmsxname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\dmsxname~\thetcbcounter\ (#2)}}
+		{title=\dmsxname~\thetcbcounter}
+}}
+
+% 模板代码
+\DeclareTColorBox{mbdm}{ g o t\label g }{
+	common,solstyle,
+	IfValueTF={#1}
+	{title={\mbdmname~\thetcbcounter\ (#1)}}
+	{
+		IfValueTF={#2} 
+		{title={\mbdmname~\thetcbcounter\ (#2)}}
+		{title=\mbdmname~\thetcbcounter}
+}}
+
+% 课后小结
+\DeclareTColorBox{khxj}{ g o t\label g }{
+	common,probstyle,
+	IfValueTF={#1}
+	{title={\khxjname~\thetcbcounter\ }}
+	{
+		IfValueTF={#2} 
+		{title={\khxjname~\thetcbcounter #2 课小结}}
+	%	{title=\khxjname~\thetcbcounter}
+}}
+
   % \newtcbtheorem[auto counter,number within=chapter]{corollary}{\corollaryname}{thmstyle}{cor}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{corollary}{ g o t\label g }{
     common,thmstyle,
@@ -616,7 +753,8 @@
     \bfseries\color{second}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
   \newtheoremstyle{prostyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{third}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
-
+  \newtheoremstyle{probstyle}{3pt}{3pt}{\citshape}{-3pt}{
+	\bfseries\color{third}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
 
   \theoremstyle{defstyle} % definition style
   \newtheorem{definition}{\definitionname}[\ELEGANT@thmcnt]
@@ -627,7 +765,19 @@
   \newtheorem{corollary}{\corollaryname}[\ELEGANT@thmcnt]
   \newtheorem{postulate}{\postulatename}[\ELEGANT@thmcnt]
   \newtheorem{axiom}{\axiomname}[\ELEGANT@thmcnt]
-
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \newtheorem{tmms}{\tmmsname}
+  \newtheorem{srgs}{\srgsname}
+  \newtheorem{scgs}{\scgsname}
+  \newtheorem{srly}{\srylname}
+  \newtheorem{scyl}{\scylname}
+  \newtheorem{wtts}{\wttsname}
+  \newtheorem{tmfx}{\tmfxname}
+  \newtheorem{dmsx}{\dmsxname}
+  \newtheorem{khxj}{\khxjname}
+  \newtheorem{mbdm}{\mbdmname}
+  
+	
   \theoremstyle{prostyle} % proposition style
   \newtheorem{proposition}{\propositionname}[\ELEGANT@thmcnt]
 }{\relax}
@@ -646,7 +796,7 @@
   \par\ignorespacesafterend}
 
 %% Exercise with counter
-\newcounter{exer}[chapter]
+\newcounter{exer}[section]
 \setcounter{exer}{0}
 \renewcommand{\theexer}{\thechapter.\arabic{exer}}
 \newenvironment{exercise}[1][]{
@@ -673,7 +823,7 @@
 \newenvironment{proof}{
   \par\noindent\textbf{\color{second}\proofname\;}
   \color{black!90}\cfs}{
-  % \hfill$\Box$\quad
+ 
   \par}
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
@@ -682,6 +832,7 @@
 \newenvironment{conclusion}{\par\noindent\textbf{\color{third}\conclusionname} \citshape}{\par}
 \newenvironment{property}{\par\noindent\textbf{\color{third}\propertyname} \citshape}{\par}
 \newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
+
 
 \RequirePackage{multicol}
 \tcbset{
@@ -956,10 +1107,11 @@
 \setminted[C++]{% 代码格式
 	frame=lines,
 	tabsize=4,
+	xleftmargin=1em,
 	linenos=true,
 	showspaces=false,
 	escapeinside=@@,
-	style=xcode
+	style=igor
 }
 
 \setminted[text]{% 输入输出样例格式
@@ -967,4 +1119,13 @@
 	showspaces=false,
 	style=algol
 }
+
+\newcommand{\hn}{\mintinline{C++}||}
+
+\usepackage{longtable}
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+% 罗马数字 
+\newcommand{\rmnum}[1]{\romannumeral #1}%小写
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}%大写
 
