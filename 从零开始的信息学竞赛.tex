@@ -19,7 +19,7 @@
 
 \usepackage{longtable}
 \usepackage{array}
-\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+%\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
 
 %修改标题页的橙色带
 \definecolor{customcolor}{RGB}{32,178,170}
@@ -30,13 +30,15 @@
 \maketitle%封面
 \input{00chapter/xuzhang.tex}
 \input{00chapter/zhixie.tex}
-
-
 \tableofcontents%目录
 
 \mainmatter
 \part{语言基础篇}{语言基础篇}
+万丈高楼起于垒土，算法竞赛中首先得学习基础编程语言的学习。
+
+NOI系列赛事自NOIP2022开始将仅支持C++语言。所以我们将要去学习C++语言的基础用法。
 \input{01chapter/chapter.tex}
+\input{02chapter/chapter.tex}
 
 
 \printbibliography[heading=bibintoc, title=\ebibname]

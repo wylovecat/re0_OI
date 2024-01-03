@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 单行注释}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{多}
+\PYG{c+cm}{行}
+\PYG{c+cm}{注}
+\PYG{c+cm}{释}
+\PYG{c+cm}{*/}
+\end{Verbatim}

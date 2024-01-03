@@ -872,8 +872,10 @@
     \markright{#1}
     \textcolor{structurecolor}{\Large\bfseries\adftripleflourishleft~#1~\adftripleflourishright}
   \end{center}
-  \begin{enumerate}}{
-  \end{enumerate}}
+  题单题目建议在复习相关知识点后独立完成，不要去翻看以前写的代码并复制粘贴。若一遍写不出，请及时记录题号，然后再去查看以前代码、或者请教老师，并且隔天需要重新将该题目练习一遍。
+  \begin{itemize}[label=\textcolor{structurecolor}{\upshape\scriptsize\HandPencilLeft}]}{
+  \end{itemize}}
+
 
 \def\relsec{\endgroup start}
 \def\endrelsec{end\begingroup\def \@currenvir {relsec}}
