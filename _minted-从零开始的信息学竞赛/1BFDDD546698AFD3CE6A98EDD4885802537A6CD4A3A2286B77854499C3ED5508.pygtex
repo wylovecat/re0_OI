@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{n}{cout}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{输出内容}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
-\end{Verbatim}
