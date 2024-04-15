@@ -19,7 +19,15 @@
 \subsection{操作系统}
 操作系统这块，虽然在复赛的时候，是要求在\texttt{NOI Linux 2.0}\footnote{Ubuntu 20.04的魔改版本，封装了竞赛常用的一些软件，并阉割了一部分东西。}系统上进行的，但是如果你是零基础，从容易上手的角度来说，建议可以从Windows操作系统开始，Window10/11均可。后期，等我们对计算机的相关操作已经比较熟练了，我们再转战到\texttt{Linux}平台;而如果是有计算机基础的可以直接安装Linux系统进行相关学习。
 \subsection{集成开发环境}
-集成开发环境(Integrated Development Environment,IDE)，是用于我们写C++程序的。Windows上推荐两个，一个是\texttt{Dev-C++}，另一个是\texttt{Code::Blocks}。两者都能开箱即用。\texttt{Dev-C++}比较小巧，可快速地进行单文件编译运行，上手门槛较低。而\texttt{Code::Blocks}不仅仅\texttt{Windows}平台下有，在\texttt{Noi Linux 2.0} 中也有该编辑器，能更顺利的进行学习环境的迁移，建议是Windows系统的使用\texttt{Dev-C++}进行入门学习，Linux系统的则使用\texttt{Code::Blocks}进行学习。
+集成开发环境(Integrated Development Environment,IDE)，是用于我们写C++程序的。CCF\footnote{中国计算机学会}在\texttt{NOI Linux 2.0}中已经预装了不少软件，包括\texttt{Code::Blocks}、\texttt{Geany}、和\texttt{VS Code}等。这三个软件都是跨平台的，都有 Windows 和 Linux 版本，可以选取一个软件进行安装使用，也方便不同操作系统之间的习惯迁移。
+
+另外，一些线下的编程类比赛，主办方为了省事往往不会特意安装Linux 系统，往往是Windows + \texttt{Dev C++}的组合，所以也可以选择使用\texttt{Dev C++}或它的魔改强化版本小熊猫C++进行初期的学习，他们的优点是开箱即用，不用额外配置，可快速地进行单文件编译运行，上手门槛较低。
+
+\texttt{Code::Blocks}也能快速进行单文件编译运行，但是界面是英文的，存在一定的门槛。好处是，不仅仅\texttt{Windows}平台下有，在\texttt{Noi Linux 2.0} 中也有该软件，能更顺利的进行学习环境的迁移。
+
+对于\texttt{VS Code}，使用需要一定的门槛，需要能把环境配置好。但是配置好的VS Code在软件使用的便捷性和颜值方面是强于其他软件的。
+
+综上，对于计算机小白，建议是Windows + 小熊猫C++的组合进行语言的入门，后期等对电脑较为熟悉了，可转移到 Linux平台上，使用 \texttt{Code::Blocks}或\texttt{VS Code}进行编程。
 
 \subsubsection{\texttt{Dev-C++}安装（Windows）}
 \textbf{软件下载地址} ：\href{https://wloving.lanzouq.com/dev-cpp}{https://wloving.lanzouq.com/dev-cpp}
@@ -126,7 +134,6 @@ int main()
 软件的安装过程与上文\texttt{DEV C++}的安装过程大同小异，这里就不再进行详细的安装说明。
 
 \noindent\textbf{Code::Blocks}
-% TODO: \usepackage{graphicx} required
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\linewidth]{01chapter/img/codeblocks}
@@ -139,7 +146,6 @@ Code::Blocks是一款免费的C/C++集成开发环境。在复赛环境NOI Linux
 
 \noindent\textbf{小熊猫C++}
 
-% TODO: \usepackage{graphicx} required
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\linewidth]{01chapter/img/codeintellisense}
@@ -149,6 +155,16 @@ Code::Blocks是一款免费的C/C++集成开发环境。在复赛环境NOI Linux
 
 
 小熊猫是一款跨平台、轻量易用的开源C/C++集成开发环境。小熊猫C++前身——小熊猫Dev-C++的开发最初是从修改和完善Orwell Dev-C++ 5.11版本开始的。所以习惯Dev C++的同学会非常好上手，功能也是较Dev C++强大很多。
+
+\noindent\textbf{Visual Studio Code}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{01chapter/img/vscode}
+	\caption{}
+	\label{fig:vscode}
+\end{figure}
+
+Visual Studio Code 实际上是个编辑器，但是配置好C++的环境之后无论是便捷程度还是颜值都是非常不错的。且官方的比赛环境中也安装好了Visual Studio Code。
 
 \subsubsection{网站推荐}
 推荐几个对之后的信奥大有帮助的网站，可以保存在浏览器的收藏夹中。
