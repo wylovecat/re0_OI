@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{OIBooks}[2023/11/20 v1.0 oibooks]
+\ProvidesClass{OIBooks}[2023/11/20 oibooks v1.0 ]
 %%%%%%%%%%%%%%
 
 \RequirePackage{kvoptions}
@@ -123,16 +123,16 @@
     \geometry{
       marginparwidth=5cm, marginparsep=5mm,
       left=2cm,right=7cm}}{\relax}}{
-    \relax}
+  \relax}
 
 \ifdefstring{\ELEGANT@device}{pad}{
-\geometry{
-  paperwidth=7.5in, 
-  paperheight=10in,
-  margin=16mm,
-  headheight=2.17cm,
-  footskip=4mm
-}}{\relax}
+  \geometry{
+    paperwidth=7.5in, 
+    paperheight=10in,
+    margin=16mm,
+    headheight=2.17cm,
+    footskip=4mm
+  }}{\relax}
 
 
 \RequirePackage{indentfirst,comment}
@@ -149,6 +149,8 @@
 \PassOptionsToPackage{quiet}{fontspec}
 \RequirePackage{iftex}
 
+
+
 \ifXeTeX
   \RequirePackage[no-math]{fontspec}
   \setmainfont{texgyretermes}[
@@ -158,7 +160,7 @@
     BoldItalicFont = *-bolditalic ,
     Extension = .otf ,
     Scale = 1.0]
-    
+  
   \setsansfont{texgyreheros}[
     UprightFont = *-regular ,
     BoldFont = *-bold ,
@@ -166,9 +168,12 @@
     BoldItalicFont = *-bolditalic ,
     Extension = .otf ,
     Scale = 0.9]
+  
+  \setmonofont{Maple Mono NF CN}
 \else
   \RequirePackage{newtxtext}
   \RequirePackage[scaled=.90]{helvet}
+  
 \fi
 
 \ifdefstring{\ELEGANT@lang}{cn}{
@@ -188,7 +193,7 @@
   
   \ifdefstring{\ELEGANT@chinesefont}{nofont}{
     \RequirePackage[UTF8,scheme=plain,fontset=none]{ctex}}{\relax}
-
+  
   \ifdefstring{\ELEGANT@chinesefont}{ctexfont}{
     \RequirePackage[UTF8,scheme=plain]{ctex}}{\relax}
   
@@ -200,6 +205,7 @@
   \newcommand{\cbfseries}{\heiti}
 \else
   \newcommand{\cbfseries}{\bfseries}
+  
 \fi
 
 
@@ -207,17 +213,20 @@
   \newcommand{\citshape}{\kaishu}
 \else
   \newcommand{\citshape}{\itshape}
+  
 \fi
 \ifcsname kaishu\endcsname
   \newcommand{\cnormal}{\kaishu}
 \else
   \newcommand{\cnormal}{\normalfont}
+  
 \fi
 
 \ifcsname fangsong\endcsname
   \newcommand{\cfs}{\fangsong}
 \else
   \newcommand{\cfs}{\normalfont}
+  
 \fi
 
 \RequirePackage{anyfontsize}
@@ -230,10 +239,10 @@
   % \let\widering\undefined
   % \RequirePackage{yhmath}
   % \let\widering\oldwidering
-
+  
   %%% use esvect pkg, uncomment following code
   % \RequirePackage{esvect}
-
+  
   \DeclareSymbolFont{CMlargesymbols}{OMX}{cmex}{m}{n}
   \let\sumop\relax\let\prodop\relax
   \DeclareMathSymbol{\sumop}{\mathop}{CMlargesymbols}{"50}
@@ -336,7 +345,7 @@
 \RequirePackage[shortlabels,inline]{enumitem}
 \setlist{nolistsep}
 
-\RequirePackage[labelfont={bf,color=structurecolor}]{caption} 
+\RequirePackage[labelfont={bf,color=structurecolor}]{caption}
 \captionsetup[table]{skip=3pt}
 \captionsetup[figure]{skip=3pt}
 
@@ -425,8 +434,9 @@
   \newcommand{\tmfxname}{题目分析}
   \newcommand{\dmsxname}{代码实现}
   \newcommand{\mbdmname}{模板代码}
+  \newcommand{\proname}{模板题目}
   \newcommand{\khxjname}[1]{第#1}
-}{\relax} 
+}{\relax}
 
 
 
@@ -437,7 +447,7 @@
 \RequirePackage{tikz} %% load tikz without tikz
 \usetikzlibrary{backgrounds,calc,shadows,positioning,fit}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+    \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 %  https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 \newcommand*{\eitemi}{\tikz \draw [baseline, ball color=structurecolor,draw=none] circle (2pt);}
@@ -488,73 +498,73 @@
 \ifdefstring{\ELEGANT@mode}{fancy}{
   \tcbset{
     common/.style={
-      fontupper=\citshape,
-      lower separated=false,
-      % before upper={\setlength{\parindent}{\normalparindent}},
-      coltitle=white,
-      colback=gray!5,
-      boxrule=0.5pt,
-      fonttitle=\bfseries,
-      enhanced,
-      breakable,
-      top=8pt,
-      before skip=8pt,
-      attach boxed title to top left={
-        yshift=-0.11in,
-        xshift=0.15in},
-      boxed title style={
-        boxrule=0pt,
-        colframe=white,
-        arc=0pt,
-        outer arc=0pt},
-      separator sign={.},},
+        fontupper=\citshape,
+        lower separated=false,
+        % before upper={\setlength{\parindent}{\normalparindent}},
+        coltitle=white,
+        colback=gray!5,
+        boxrule=0.5pt,
+        fonttitle=\bfseries,
+        enhanced,
+        breakable,
+        top=8pt,
+        before skip=8pt,
+        attach boxed title to top left={
+            yshift=-0.11in,
+            xshift=0.15in},
+        boxed title style={
+            boxrule=0pt,
+            colframe=white,
+            arc=0pt,
+            outer arc=0pt},
+        separator sign={.},},
     defstyle/.style={
-      common,
-      colframe=main,  
-      colback=main!5,
-      colbacktitle=main, 
-      overlay unbroken and last={
-        \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
-          \textcolor{main}{$\clubsuit$}};}},
-	probstyle/.style={
-	   	common,
-	   	colframe=third4,  
-	   	colback=third4!5,
-	   	colbacktitle=third, 
-	   	overlay unbroken and last={
-	   		\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
-	   			\textcolor{third}{$\clubsuit$}};}},
-	solstyle/.style={
-		   	common,
-		   	colframe=third4,  
-		   	colback=third4!5,
-		   	colbacktitle=second, 
-		   	overlay unbroken and last={
-		   		\node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
-		   			\textcolor{second}{$\clubsuit$}};}},
+        common,
+        colframe=main,  
+        colback=main!5,
+        colbacktitle=main, 
+        overlay unbroken and last={
+            \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+              \textcolor{main}{$\clubsuit$}};}},
+    probstyle/.style={
+        common,
+        colframe=third4,  
+        colback=third4!5,
+        colbacktitle=third, 
+        overlay unbroken and last={
+            \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+              \textcolor{third}{$\clubsuit$}};}},
+    solstyle/.style={
+        common,
+        colframe=third4,  
+        colback=third4!5,
+        colbacktitle=second, 
+        overlay unbroken and last={
+            \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+              \textcolor{second}{$\clubsuit$}};}},
     thmstyle/.style={
-      common,
-      colframe=second,  
-      colback=second!5,
-      colbacktitle=second, 
-      overlay unbroken and last={
-        \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
-          \textcolor{second}{$\heartsuit$}};}},
+        common,
+        colframe=second,  
+        colback=second!5,
+        colbacktitle=second, 
+        overlay unbroken and last={
+            \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+              \textcolor{second}{$\heartsuit$}};}},
     propstyle/.style={
-      common,
-      colframe=third,  
-      colback=third!5,
-      colbacktitle=third, 
-      overlay unbroken and last={
-        \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
-          \textcolor{third}{$\spadesuit$}};}},}
+        common,
+        colframe=third,  
+        colback=third!5,
+        colbacktitle=third, 
+        overlay unbroken and last={
+            \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) {
+              \textcolor{third}{$\spadesuit$}};}},}
   % \newtcbtheorem[auto counter,number within=chapter]{definition}{\definitionname}{defstyle}{def}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{definition}{ g o t\label g }{
     common,defstyle,
     IfValueTF={#1}
       {title={\definitionname~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\definitionname~\thetcbcounter\ (#2)}}
           {title=\definitionname~\thetcbcounter}
       },
@@ -565,7 +575,7 @@
     IfValueTF={#1}
       {title={\theoremname~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\theoremname~\thetcbcounter\ (#2)}}
           {title=\theoremname~\thetcbcounter}
       },
@@ -576,7 +586,7 @@
     IfValueTF={#1}
       {title={\postulatename~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\postulatename~\thetcbcounter\ (#2)}}
           {title=\postulatename~\thetcbcounter}
       },
@@ -587,129 +597,140 @@
     IfValueTF={#1}
       {title={\axiomname~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\axiomname~\thetcbcounter\ (#2)}}
           {title=\axiomname~\thetcbcounter}
       },
     IfBooleanTF={#3}{label=#4}{label={axi:#4}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 题目描述
-\DeclareTColorBox{tmms}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\tmmsname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\tmmsname~\thetcbcounter\ (#2)}}
-		{title=\tmmsname~\thetcbcounter}
-}}
-
-% 输入格式
- \DeclareTColorBox{srgs}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\srgsname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\srgsname~\thetcbcounter\ (#2)}}
-		{title=\srgsname~\thetcbcounter}
-	}}
-
-% 输出格式
-\DeclareTColorBox{scgs}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\scgsname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\scgsname~\thetcbcounter\ (#2)}}
-		{title=\scgsname~\thetcbcounter}
-}}
-
-% 输入样例
-\DeclareTColorBox{sryl}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\srylname~\thetcbcounter\ #1}}
-	{
-		IfValueTF={#2} 
-		{title={\srylname~\thetcbcounter\ #2}}
-		{title=\srylname~\thetcbcounter}
-}}
-
-% 输出样例
-\DeclareTColorBox{scyl}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\scylname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\scylname~\thetcbcounter\ #2}}
-		{title=\scylname~\thetcbcounter}
-}}
-
-% 问题提示
-\DeclareTColorBox{wtts}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\wttsname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\wttsname~\thetcbcounter\ (#2)}}
-		{title=\wttsname~\thetcbcounter}
-}}
-
-% 题目分析
-\DeclareTColorBox{tmfx}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\tmfxname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\tmfxname~\thetcbcounter\ (#2)}}
-		{title=\tmfxname~\thetcbcounter}
-}}
-
-% 代码实现
-\DeclareTColorBox{dmsx}{ g o t\label g }{
-	common,solstyle,
-	IfValueTF={#1}
-	{title={\dmsxname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\dmsxname~\thetcbcounter\ (#2)}}
-		{title=\dmsxname~\thetcbcounter}
-}}
-
-% 模板代码
-\DeclareTColorBox{mbdm}{ g o t\label g }{
-	common,solstyle,
-	IfValueTF={#1}
-	{title={\mbdmname~\thetcbcounter\ (#1)}}
-	{
-		IfValueTF={#2} 
-		{title={\mbdmname~\thetcbcounter\ (#2)}}
-		{title=\mbdmname~\thetcbcounter}
-}}
-
-% 课后小结
-\DeclareTColorBox{khxj}{ g o t\label g }{
-	common,probstyle,
-	IfValueTF={#1}
-	{title={\khxjname~\thetcbcounter\ }}
-	{
-		IfValueTF={#2} 
-		{title={\khxjname~\thetcbcounter #2 课小结}}
-	%	{title=\khxjname~\thetcbcounter}
-}}
-
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 题目描述
+  \DeclareTColorBox{tmms}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\tmmsname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\tmmsname~\thetcbcounter\ (#2)}}
+          {title=\tmmsname~\thetcbcounter}
+      }}
+  
+  % 输入格式
+  \DeclareTColorBox{srgs}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\srgsname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\srgsname~\thetcbcounter\ (#2)}}
+          {title=\srgsname~\thetcbcounter}
+      }}
+  
+  % 输出格式
+  \DeclareTColorBox{scgs}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\scgsname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\scgsname~\thetcbcounter\ (#2)}}
+          {title=\scgsname~\thetcbcounter}
+      }}
+  
+  % 输入样例
+  \DeclareTColorBox{sryl}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\srylname~\thetcbcounter\ #1}}
+      {
+        IfValueTF={#2}
+          {title={\srylname~\thetcbcounter\ #2}}
+          {title=\srylname~\thetcbcounter}
+      }}
+  
+  % 输出样例
+  \DeclareTColorBox{scyl}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\scylname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\scylname~\thetcbcounter\ #2}}
+          {title=\scylname~\thetcbcounter}
+      }}
+  
+  % 问题提示
+  \DeclareTColorBox{wtts}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\wttsname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\wttsname~\thetcbcounter\ (#2)}}
+          {title=\wttsname~\thetcbcounter}
+      }}
+  
+  % 题目分析
+  \DeclareTColorBox{tmfx}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\tmfxname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\tmfxname~\thetcbcounter\ (#2)}}
+          {title=\tmfxname~\thetcbcounter}
+      }}
+  
+  % 代码实现
+  \DeclareTColorBox{dmsx}{ g o t\label g }{
+    common,solstyle,
+    IfValueTF={#1}
+      {title={\dmsxname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\dmsxname~\thetcbcounter\ (#2)}}
+          {title=\dmsxname~\thetcbcounter}
+      }}
+  
+  % 模板代码
+  \DeclareTColorBox{mbdm}{ g o t\label g }{
+    common,solstyle,
+    IfValueTF={#1}
+      {title={\mbdmname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\mbdmname~\thetcbcounter\ (#2)}}
+          {title=\mbdmname~\thetcbcounter}
+      }}
+  
+  % 课后小结
+  \DeclareTColorBox{khxj}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\khxjname~\thetcbcounter\ }}
+      {
+        IfValueTF={#2}
+          {title={\khxjname~\thetcbcounter #2 课小结}}
+        %	{title=\khxjname~\thetcbcounter}
+      }}
+  % 模板题目
+  \DeclareTColorBox{pro}{ g o t\label g }{
+    common,probstyle,
+    IfValueTF={#1}
+      {title={\proname~\thetcbcounter\ (#1)}}
+      {
+        IfValueTF={#2}
+          {title={\proname~\thetcbcounter\ (#2)}}
+          {title=\proname}
+      }
+  }
+  
   % \newtcbtheorem[auto counter,number within=chapter]{corollary}{\corollaryname}{thmstyle}{cor}
   \DeclareTColorBox[auto counter,number within=\ELEGANT@thmcnt]{corollary}{ g o t\label g }{
     common,thmstyle,
     IfValueTF={#1}
       {title={\corollaryname~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\corollaryname~\thetcbcounter\ (#2)}}
           {title=\corollaryname~\thetcbcounter}
       },
@@ -720,7 +741,7 @@
     IfValueTF={#1}
       {title={\lemmaname~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\lemmaname~\thetcbcounter\ (#2)}}
           {title=\lemmaname~\thetcbcounter}
       },
@@ -731,7 +752,7 @@
     IfValueTF={#1}
       {title={\propositionname~\thetcbcounter\ (#1)}}
       {
-        IfValueTF={#2} 
+        IfValueTF={#2}
           {title={\propositionname~\thetcbcounter\ (#2)}}
           {title=\propositionname~\thetcbcounter}
       },
@@ -745,7 +766,7 @@
   \let\proof\relax
   % \let\proofname\relax
   \let\endproof\relax
-
+  
   % declare a new theorem style
   \newtheoremstyle{defstyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{main}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
@@ -754,11 +775,11 @@
   \newtheoremstyle{prostyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{third}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
   \newtheoremstyle{probstyle}{3pt}{3pt}{\citshape}{-3pt}{
-	\bfseries\color{third}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
-
+    \bfseries\color{third}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
+  
   \theoremstyle{defstyle} % definition style
   \newtheorem{definition}{\definitionname}[\ELEGANT@thmcnt]
-
+  
   \theoremstyle{thmstyle} %theorem style
   \newtheorem{theorem}{\theoremname}[\ELEGANT@thmcnt]
   \newtheorem{lemma}{\lemmaname}[\ELEGANT@thmcnt]
@@ -777,7 +798,7 @@
   \newtheorem{khxj}{\khxjname}
   \newtheorem{mbdm}{\mbdmname}
   
-	
+  
   \theoremstyle{prostyle} % proposition style
   \newtheorem{proposition}{\propositionname}[\ELEGANT@thmcnt]
 }{\relax}
@@ -803,8 +824,8 @@
   \refstepcounter{exer}
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\HandPencilLeft\quad}
-    \textbf{\color{main}{\exercisename} \theexer #1 }\rmfamily}{
-    \par\ignorespacesafterend}
+  \textbf{\color{main}{\exercisename} \theexer #1 }\rmfamily}{
+  \par\ignorespacesafterend}
 
 %% Problem with counter
 \newcounter{prob}[chapter]
@@ -818,12 +839,12 @@
 \newenvironment{note}{
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\textdbend\quad}
-    \textbf{\color{second}\notename} \citshape}{\par}
+  \textbf{\color{second}\notename} \citshape}{\par}
 
 \newenvironment{proof}{
   \par\noindent\textbf{\color{second}\proofname\;}
   \color{black!90}\cfs}{
- 
+
   \par}
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
@@ -837,21 +858,21 @@
 \RequirePackage{multicol}
 \tcbset{
   introductionsty/.style={
-    enhanced,
-    breakable,
-    colback=structurecolor!10,
-    colframe=structurecolor,
-    fonttitle=\bfseries,
-    colbacktitle=structurecolor,
-    fontupper=\citshape,
-    attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
-    boxrule=0pt,
-    toprule=0.5pt,
-    bottomrule=0.5pt,
-    top=8pt,
-    before skip=8pt,
-    sharp corners
-  },
+      enhanced,
+      breakable,
+      colback=structurecolor!10,
+      colframe=structurecolor,
+      fonttitle=\bfseries,
+      colbacktitle=structurecolor,
+      fontupper=\citshape,
+      attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+      boxrule=0pt,
+      toprule=0.5pt,
+      bottomrule=0.5pt,
+      top=8pt,
+      before skip=8pt,
+      sharp corners
+    },
 }
 
 \newenvironment{introduction}[1][\introductionname]{
@@ -864,10 +885,10 @@
 
 \RequirePackage{adforn}
 
-\newenvironment{problemset}[1][\xchaptertitle~\exercisename]{
+\newenvironment{problemset}[1][\thesection~\exercisename]{
   \vspace*{10pt}
   \begin{center}
-    \phantomsection\addcontentsline{toc}{section}{\texorpdfstring{\xchaptertitle~\exercisename}{\exercisename}}
+    \phantomsection\addcontentsline{toc}{subsection}{\texorpdfstring{\thesection~\exercisename}{\exercisename}}
     % \markboth{#1}{\rightmark}
     \markright{#1}
     \textcolor{structurecolor}{\Large\bfseries\adftripleflourishleft~#1~\adftripleflourishright}
@@ -882,9 +903,9 @@
 
 \ifdefstring{\ELEGANT@result}{noanswer}{
   \AtBeginDocument{
-  \excludecomment{solution}
-  \excludecomment{proof}
-  \excludecomment{inline}
+    \excludecomment{solution}
+    \excludecomment{proof}
+    \excludecomment{inline}
   }
 }{\relax}
 
@@ -900,6 +921,7 @@
   \fancyhead[OR]{\color{structurecolor}\cnormal\rightmark}
 \else
   \fancyhead[R]{\color{structurecolor}\cnormal\rightmark}
+  
 \fi
 
 \renewcommand{\headrule}{\color{structurecolor}\hrule width\textwidth}
@@ -912,107 +934,118 @@
 
 
 \renewcommand*{\maketitle}{%
-\hypersetup{pageanchor=false}
-\pagenumbering{Alph}
-\begin{titlepage}
-  \newgeometry{margin = 0in}
-  \parindent=0pt
-  \ifdefstring{\ELEGANT@device}{normal}{
-    \ifcsname @cover\endcsname
-      \includegraphics[width=\linewidth]{\@cover}
-    \else
-      \includegraphics[width=\linewidth]{example-image}
-    \fi
-  }{\relax}
-  \ifdefstring{\ELEGANT@device}{pad}{
-    \ifcsname @cover\endcsname
-      \includegraphics[trim=0 26bp 0 26bp,clip=true, width=\linewidth]{\@cover}
-    \else
-      \includegraphics[trim=0 26bp 0 26bp,clip=true, width=\linewidth]{example-image}
-    \fi
-  }{\relax}
-  \setlength{\fboxsep}{0pt}
-  \colorbox{coverlinecolor}{\makebox[\linewidth][c]{\shortstack[c]{\vspace{0.5in}}}}
-  \vfill
-  \vskip-2ex
-  \hspace{2em}
-  \parbox{0.8\textwidth}{
-    \bfseries\Huge 
+  \hypersetup{pageanchor=false}
+  \pagenumbering{Alph}
+  \begin{titlepage}
+    \newgeometry{margin = 0in}
+    \parindent=0pt
+    \ifdefstring{\ELEGANT@device}{normal}{
+      \ifcsname @cover\endcsname
+        \includegraphics[width=\linewidth]{\@cover}
+      \else
+        \includegraphics[width=\linewidth]{example-image}
+      \fi
+    }{\relax}
+    \ifdefstring{\ELEGANT@device}{pad}{
+      \ifcsname @cover\endcsname
+        \includegraphics[trim=0 26bp 0 26bp,clip=true, width=\linewidth]{\@cover}
+      \else
+        \includegraphics[trim=0 26bp 0 26bp,clip=true, width=\linewidth]{example-image}
+      \fi
+    }{\relax}
+    \setlength{\fboxsep}{0pt}
+    \colorbox{coverlinecolor}{\makebox[\linewidth][c]{\shortstack[c]{\vspace{0.5in}}}}
+    \vfill
+    \vskip-2ex
+    \hspace{2em}
+    \parbox{0.8\textwidth}{
+      \bfseries\Huge 
       \ifcsname @title\endcsname \@title \fi
-    \par}
-  \vfill
-  \vspace{-1.0cm}
-  \setstretch{2.5}
-  \hspace{2.5em}
-  \begin{minipage}[c]{0.67\linewidth}
-    {\color{darkgray}\bfseries\Large
-      \ifcsname @subtitle\endcsname\@subtitle\\[2ex]\fi}
-    \color{gray}\normalsize
-    {\renewcommand{\arraystretch}{0.618}
-    \begin{tabular}{l}
-      % \ifcsname @author\endcsname \authorname \@author\\\fi
-      \ifx\@author\empty\else\authorname\cnormal\@author\\ \fi
-      \ifcsname @institute\endcsname \institutename \cnormal\@institute\\ \fi
-      % \ifcsname @date\endcsname  \@date\\\fi
-      \ifx\@date\empty\else\datename\cnormal\@date \\ \fi
-      \ifcsname @version\endcsname \cnormal\versionname\@version\\ \fi
-      \ifcsname @bioinfo\endcsname \cnormal\@bioinfo\\ \fi
-    \end{tabular}}
-  \end{minipage}
-  \begin{minipage}[c]{0.27\linewidth}
-  \begin{tikzpicture}[remember picture,overlay]
-    \begin{pgfonlayer}{background}
-      \node[opacity=0.8,
+      \par}
+    \vfill
+    \vspace{-1.0cm}
+    \setstretch{2.5}
+    \hspace{2.5em}
+    \begin{minipage}[c]{0.67\linewidth}
+      {\color{darkgray}\bfseries\Large
+        \ifcsname @subtitle\endcsname\@subtitle\\[2ex]\fi}
+      \color{gray}\normalsize
+      {\renewcommand{\arraystretch}{0.618}
+        \begin{tabular}{l}
+          % \ifcsname @author\endcsname \authorname \@author\\\fi
+          \ifx\@author\empty\else\authorname\cnormal\@author                \\ \fi
+          \ifcsname @institute\endcsname \institutename \cnormal\@institute \\ \fi
+          % \ifcsname @date\endcsname  \@date\\\fi
+          \ifx\@date\empty\else\datename\cnormal\@date                      \\ \fi
+          \ifcsname @version\endcsname \cnormal\versionname\@version        \\ \fi
+          \ifcsname @bioinfo\endcsname \cnormal\@bioinfo                    \\ \fi
+        \end{tabular}}
+    \end{minipage}
+    \begin{minipage}[c]{0.27\linewidth}
+      \begin{tikzpicture}[remember picture,overlay]
+        \begin{pgfonlayer}{background}
+          \node[opacity=0.8,
             anchor=south east,
             outer sep=0pt,
             inner sep=0pt] at ($(current page.south east) +(-0.8in,1.5in)$) {
-              \ifcsname @logo\endcsname\includegraphics[width=4.2cm]{\@logo}\fi};
-    \end{pgfonlayer}
-  \end{tikzpicture}
-  \end{minipage}
-  \vfill
-  \begin{center}
-    \setstretch{1.3}
-    \parbox[t]{0.7\textwidth}{\centering \citshape 
-      \ifcsname @extrainfo\endcsname\@extrainfo\fi}
-  \end{center}
-  \vfill
-\end{titlepage}
-\restoregeometry
-\thispagestyle{empty}}
+            \ifcsname @logo\endcsname\includegraphics[width=4.2cm]{\@logo}\fi};
+        \end{pgfonlayer}
+      \end{tikzpicture}
+    \end{minipage}
+    \vfill
+    \begin{center}
+      \setstretch{1.3}
+      \parbox[t]{0.7\textwidth}{\centering \citshape
+        \ifcsname @extrainfo\endcsname\@extrainfo\fi}
+    \end{center}
+    \vfill
+  \end{titlepage}
+  \restoregeometry
+  \thispagestyle{empty}}
 
 
 \newcommand{\dollar}{\mbox{\textdollar}}
-
 \RequirePackage{listings}
-\renewcommand{\ttdefault}{cmtt}
-\lstdefinestyle{mystyle}{
-  basicstyle=%
-    \ttfamily
-    \lst@ifdisplaystyle\small\fi
+% 设置代码块
+\lstdefinestyle{io}{
+  basicstyle=\ttfamily,
+  framexleftmargin=5mm,
+  frame=none,
+  tabsize=2,
+  xleftmargin=2em
 }
-
-\lstset{basicstyle=\ttfamily,style=mystyle,breaklines=true}
+\lstdefinestyle{cpp}{
+  language=C++,
+  escapeinside=``,%逃逸符号
+  %行号
+  numbers=left,
+  numberstyle=\tiny,
+  %背景框
+  frame=tb,
+  %背景色
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  %backgroundcolor=\color[RGB]{245,245,244},
+  %样式
+  keywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{brown!80!black},
+  numberstyle=\footnotesize\color[RGB]{0,192,192},
+  numbersep=5pt,
+  commentstyle=\itshape\color[RGB]{53,129,34},
+  stringstyle=\slshape\color[RGB]{128,0,0},
+  %显示空格
+  showstringspaces=false,
+  tabsize=4, %此时一个tab键=4个空格
+  xleftmargin=2em, %整体距左侧边线的距离为2em
+  xrightmargin=2em,
+  aboveskip=1em,
+  breaklines=true,                	% 设置自动断行
+  breakatwhitespace=false,        	% 设置自动中断是否只发生在空格处
+}
+\lstset{basicstyle=\ttfamily,columns=fullflexible}
 
 \definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
 \definecolor{frenchplum}{RGB}{190,20,83}
-\lstset{language=[LaTeX]TeX,
-  texcsstyle=*\color{winered},
-  numbers=none,
-  mathescape=false,
-  breaklines=true,
-  keywordstyle=\color{winered},
-  commentstyle=\color{gray},
-  emph={elegantpaper,fontenc,fontspec,xeCJK,citestyle,FiraMono,xunicode,figure,fig,image,img,table,itemize,enumerate,ctex,microtype,description,times,booktabs,tabular,PDFLaTeX,XeLaTeX,type1cm,BibTeX,device,color,mode,lang,amsthm,tcolorbox,titlestyle,cite,ctex,listings,base,math,scheme,toc,esint,chinesefont,amsmath,bibstyle,natbib,pgfornament},
-  emphstyle={\color{frenchplum}},
-  morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institute,version,includegraphics,setmainfont,setsansfont,setmonofont ,setCJKmainfont,setCJKsansfont,setCJKmonofont,RequirePackage,figref,tabref,email,maketitle,keywords,definecolor,extrainfo,logo,cover,subtitle,appendix,chapter,hypersetup,mainmatter,frontmatter,tableofcontents,elegantpar,heiti,kaishu,lstset,pagecolor,zhnumber,marginpar,part,equote,marginnote,bioinfo,datechange,listofchange,lvert,lastpage,songti,heiti,fangsong,setCJKfamilyfont,textbf},
-  frame=single,
-  tabsize=2,
-  rulecolor=\color{structurecolor},
-  framerule=0.2pt,
-  columns=flexible,
-  % backgroundcolor=\color{lightgrey}
-}
+
 
 \newcommand\bmmax{0}
 \RequirePackage{bm}
@@ -1020,9 +1053,9 @@
 % add the list of change history
 \newcommand{\dateinfoline}[2]{
   \noindent\makebox[0pt][r]{%
-  \makebox[-3em][r]{%
-    \small
-    \textbf{\textcolor{structurecolor}{#1}}}\;\;}%
+    \makebox[-3em][r]{%
+      \small
+      \textbf{\textcolor{structurecolor}{#1}}}\;\;}%
   {\citshape\updatename\ignorespaces#2}}
 
 \newcommand{\datechange}[2]{%
@@ -1032,11 +1065,11 @@
 
 \newcommand{\listofchanges}{%
   \begingroup
-    \renewcommand{\contentsname}{\historyname}
-    \let\old@starttoc\@starttoc
-    \def\@starttoc##1{
-      \old@starttoc{dates}}
-    \tableofcontents%
+  \renewcommand{\contentsname}{\historyname}
+  \let\old@starttoc\@starttoc
+  \def\@starttoc##1{
+    \old@starttoc{dates}}
+  \tableofcontents%
   \endgroup}
 % https://tex.stackexchange.com/questions/472931/list-of-all-dates-in-a-document
 
@@ -1048,29 +1081,29 @@
 
 \renewcommand\tableofcontents{%
   \hypersetup{linktoc=all, linkcolor=black}
-    \if@twocolumn
-      \@restonecoltrue\onecolumn
-    \else
-      \@restonecolfalse
-    \fi
-    \chapter*{\contentsname
-        \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-    \ifdefstring{\ELEGANT@toc}{twocol}{
-      \setlength{\columnsep}{2em}
-      \begin{multicols}{2}%
-        \@starttoc{toc}
-      \end{multicols}}{
-      \@starttoc{toc}}
-    \if@restonecol\twocolumn\fi
-    \hypersetup{linkcolor=winered}}
+  \if@twocolumn
+    \@restonecoltrue\onecolumn
+  \else
+    \@restonecolfalse
+  \fi
+  \chapter*{\contentsname
+    \@mkboth{%
+      \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+  \ifdefstring{\ELEGANT@toc}{twocol}{
+    \setlength{\columnsep}{2em}
+    \begin{multicols}{2}%
+      \@starttoc{toc}
+    \end{multicols}}{
+    \@starttoc{toc}}
+  \if@restonecol\twocolumn\fi
+  \hypersetup{linkcolor=winered}}
 
 
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
-\hbox{}%
-\thispagestyle{empty}%
-\newpage%
-\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+      \hbox{}%
+      \thispagestyle{empty}%
+      \newpage%
+      \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 
 % https://tex.stackexchange.com/questions/56839/chaptername-is-used-even-for-appendix-chapters-in-toc
@@ -1105,24 +1138,6 @@
 \RequirePackage{longtable}
 \RequirePackage{array}
 
-\RequirePackage{minted}%代码
-\setminted[C++]{% 代码格式
-	frame=lines,
-	tabsize=4,
-	xleftmargin=1em,
-	linenos=true,
-	showspaces=false,
-	escapeinside=@@,
-	style=igor
-}
-
-\setminted[text]{% 输入输出样例格式
-	tabsize=4,
-	showspaces=false,
-	style=algol
-}
-
-\newcommand{\hn}{\mintinline{C++}||}
 
 \usepackage{longtable}
 \usepackage{array}
@@ -1131,3 +1146,4 @@
 \newcommand{\rmnum}[1]{\romannumeral #1}%小写
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}%大写
 
+\setmonofont{Maple Mono NF CN}

@@ -1,0 +1,91 @@
+\chapter{特殊树}
+\section{线段树}
+
+\begin{problemset}
+\item 洛谷B2002 Hello,World!
+\item 洛谷B2025 输出字符菱形
+\item 洛谷P1000 超级玛丽游戏
+\end{problemset}
+
+\section{字典树}
+\begin{pro}
+	
+洛谷 P8306 字典树 
+
+\url{https://www.luogu.com.cn/problem/P8306}
+\end{pro}
+
+\begin{lstlisting}[style=cpp]
+#include <bits/stdc++.h>
+using namespace std;
+using i64 = long long;
+const int N = 1e5 + 5;
+const int M = 3e6 + 5;
+int toNum[256];  // toNum[字符]=数字(分支位置)
+struct node {
+	int son[65];  // 分支 每个字母对应一个
+	int num;      // 树根到该节点的前缀出现次数
+	bool end;     // 是否是单词的结尾
+} trie[M];
+int tot;  // 字典树节点个数，trie[0]为根节点
+void init() {
+	for (int i = 0; i < 26; i++) {
+		toNum[i + 'a'] = i;
+		toNum[i + 'A'] = i + 26;
+	}
+	for (int i = 0; i < 10; i++) {
+		toNum[i + '0'] = i + 52;
+	}
+}
+void insert(string s) {
+	int len = s.size();
+	int u = 0;
+	for (int i = 0; i < len; i++) {
+		int ch = toNum[(int)s[i]];
+		if (!trie[u].son[ch])  // 当前分支第一次出现
+		trie[u].son[ch] = ++tot;  // 将tot分配给新分支的字母ch,记录对应位置
+		u = trie[u].son[ch];  // 更新位置
+		trie[u].num++;        // 更新前缀单词个数
+	}
+	trie[u].end = 1;  // 标记结尾
+}
+int findPre(string s) {
+	int len = s.size();
+	int u = 0;
+	for (int i = 0; i < len; i++) {
+		int ch = toNum[(int)s[i]];
+		if (!trie[u].son[ch]) return 0;  // 字符串s不存在
+		u = trie[u].son[ch];             // 更新位置
+	}
+	return trie[u].num;  // 返回前缀s的个数
+}
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int n, q, t;
+	string s;
+	init();
+	cin >> t;
+	while (t--) {
+		for (int i = 0; i <= tot; i++) trie[i] = {0};
+		tot = 0;
+		cin >> n >> q;
+		for (int i = 1; i <= n; i++) {
+			cin >> s;
+			insert(s);
+		}
+		for (int i = 1; i <= q; i++) {
+			cin >> s;
+			cout << findPre(s) << '\n';
+		}
+	}
+	return 0;
+}	
+\end{lstlisting}
+
+\begin{problemset}
+	\item 洛谷B2002 Hello,World!
+	\item 洛谷B2025 输出字符菱形
+	\item 洛谷P1000 超级玛丽游戏
+\end{problemset}
+
